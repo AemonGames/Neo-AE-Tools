@@ -1,0 +1,20 @@
+
+.edit-options{
+    display: flex;
+    flex-direction: column;
+    
+    width: 40vw;
+    margin: 2vh;
+
+    .present-button{
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.monstruct-editor{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,60 @@
+// Modal-specific container
+.custom-template-modal .modal-content {
+    background-color: #242424;
+    color: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  // The button layout grid
+  .template-options-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  // Template animation container
+  .template-fade {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  
+  // Reuse from your old container
+  .template-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    h1 {
+      color: white;
+    }
+  
+    .present-button {
+      width: 15vw;
+      height: 15vw;
+  
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  
+    form {
+      color: white;
+    }
+  }
+
+
+
+
+  @media (max-width: 768px) {
+    .template-page-container .present-button {
+      width: 30vw;
+      height: 30vw;
+    }
+  }
+  

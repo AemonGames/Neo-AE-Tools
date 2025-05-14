@@ -1,0 +1,18 @@
+name: ae-tools-frontend
+
+static_sites:
+  - name: frontend
+    github:
+      repo: AemonGames/Neo-AE-Tools
+      branch: main
+      deploy_on_push: true
+    source_dir: frontend  # ✅ Correct key for directory
+    build_command: npm install && npm run build
+    output_dir: dist
+    routes:
+      - path: /
+    envs:
+      - key: VITE_BACKEND_SERVER_URL
+        value: https://api.yourdomain.com/api/
+      - key: VITE_GOOGLE_CLIENT_ID
+        value: ${VITE_GOOGLE_CLIENT_ID}  # ✅ No quotes needed

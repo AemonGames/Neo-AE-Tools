@@ -1,0 +1,27 @@
+@use '../../_misc.scss' as m;
+
+#intro{
+    //align-content: center;
+    @include m.viewingWindow(row);
+    width: auto;
+    
+    justify-content: center;
+    align-items: center;
+  
+    flex-direction: column;
+  
+    color: aliceblue;
+  
+    
+    h1{
+      //padding-top: 20vh;
+      font-style: bold;
+    }
+    
+  }
+
+  #lang-select-container{
+    position: fixed;
+    right: 0;
+    bottom: 10rem;
+  }

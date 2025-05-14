@@ -1,0 +1,121 @@
+.scripter-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background: #1e1e1e;
+  color: white;
+  overflow: hidden;
+
+  .top-bar {
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #2a2a2a;
+  }
+
+  .editor-body {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    overflow: hidden;
+  }
+
+  .config-area {
+    background: #262626;
+    padding: 1rem;
+    overflow-y: auto;
+  }
+
+  .code-area {
+    background: #1a1a1a;
+    padding: 1rem;
+    overflow-y: auto;
+  }
+
+  .utility-bar {
+    padding: 0.5rem 1rem;
+    background: #2a2a2a;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+
+
+.scripter-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background: #1e1e1e;
+  color: white;
+
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2a2a2a;
+    padding: 0.5rem 1rem;
+
+    .menu-toggle {
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: white;
+      display: none;
+    }
+
+    .menu-group span {
+      margin-right: 1rem;
+      cursor: pointer;
+    }
+
+    .user-indicators {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .user {
+      font-size: 0.9rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+
+      &.active {
+        background-color: green;
+        color: white;
+      }
+
+      &.editing {
+        background-color: red;
+        color: white;
+      }
+    }
+  }
+
+}
+
+
+
+
+@media (max-width: 768px) {
+  .scripter-layout .editor-body {
+    grid-template-columns: 1fr;
+  }
+
+  .scripter-layout .config-area {
+    display: none;
+  }
+  .top-bar .menu-toggle {
+      display: inline-block;
+  }
+
+  .editor-body {
+    grid-template-columns: 1fr;
+  }
+
+  .config-area {
+    grid-column: 1 / span 2;
+  }
+}

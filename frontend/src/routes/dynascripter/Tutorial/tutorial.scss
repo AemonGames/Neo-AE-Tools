@@ -1,0 +1,7 @@
+@use '../../_misc.scss' as m;
+
+
+
+.tutorial-page{
+    @include m.viewingWindow(column);
+}

@@ -1,0 +1,73 @@
+$bgColor1:  rgb(15, 70, 52);
+$bgColor2:  rgb(42, 167, 26);
+
+
+.dashboard-toolbar{
+    li{
+        //height: 6vh;
+    }
+
+    ul{
+        display: flex;
+        //flex-direction: column;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        
+    }
+    height: 6.7%;
+}
+
+.monstruct-bg{
+
+    /*
+    background: 
+    repeating-conic-gradient(
+        $bgColor1 0% 25%, 
+        $bgColor2 0% 50%) 
+        50% / 20px 20px;
+    */
+    position: relative;
+
+    background-color: cadetblue;
+
+    height: 100%;
+    width: 100%;
+}
+
+.monster-ticket-board-interface{
+    display: flex;
+    flex-direction: row;
+    height: 93.3%;
+}
+
+.monster-ticket-board-menu{
+
+    ul{
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        
+    }
+
+    background-color: black;
+    display: flex;
+    //align-items: center;
+    align-content: center;
+    height: 100%;
+}
+
+.monster-ticket-board-container{
+    background-color: #F5AB00;
+    height: 100%;
+}
+
+
+.monster-ticket-board{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}

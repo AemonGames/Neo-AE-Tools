@@ -1,0 +1,12 @@
+.node-tree-visualizer-container{
+    background-color: darkslategrey;
+
+
+    display: flex;
+    flex-direction: column;
+
+    // Shouldn't matter since all nodes should float freely in space
+
+    width:100%;
+    height: 100%;
+}

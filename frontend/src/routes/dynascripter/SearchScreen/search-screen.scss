@@ -1,0 +1,17 @@
+@use '../../_misc.scss' as m;
+
+#search-screen{
+    @include m.viewingWindow(row);
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+
+    div{
+        @include m.viewingWindow(column);
+
+    }
+
+    h1{
+        color: aliceblue;
+    }
+}

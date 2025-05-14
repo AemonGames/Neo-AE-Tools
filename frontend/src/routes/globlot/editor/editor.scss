@@ -1,0 +1,196 @@
+
+$color-map-background: hsl(0, 0%, 15%);
+$menu-bar-background: #404040;
+
+.map-editor-container{
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+
+    width: 100%;
+    height: 100%;
+}
+
+.map-editor-sidebar{
+    width: 30%;
+    height: 100%;
+    background-color: aqua;
+
+    display: flex;
+    flex-direction: column;
+    //justify-content: center;
+    align-items: center;
+
+}
+
+
+
+.map-editor-window{
+    height: 100%;
+    width: 100%;
+    background-color: brown;
+
+    .map-editor-menubar{
+        width: 100%;
+        height: 5%;
+        background-color: $menu-bar-background;
+    }
+
+    .map-editor-screen{
+        display: flex;
+        flex-direction: row;
+        height: 95%;
+        align-items: flex-start;
+
+        .map-editor-side-toolbar{
+            width: 10%;
+            height: 100%;
+            background-color: blue;
+        }
+
+        
+    }
+}
+
+.tile-picker-container{
+    width: 90%;
+    height: 40%;
+    background-color: green;
+}
+
+.layer-list-container{
+    width: 90%;
+    height: 40%;
+    background-color: chocolate;
+    overflow-y: scroll;
+}
+
+.map-layer-list-item{
+    width: 100%;
+    height: 20%;
+    background-color: cadetblue;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    &:hover{
+        background-color: blueviolet;
+    }
+
+
+}
+
+.layer-selected{
+    background-color: cornsilk;
+}
+
+// FIX EXCESS---------------------------------------------
+.map-editor-viewport{
+    //border: 5px solid black;
+    width: 100%;
+    height: 100%;
+    
+    image-rendering: pixelated;
+    touch-action: none;
+    cursor: inherit;
+}
+
+.map-editor-viewport-container{
+    //border: 5px solid black;
+    width: 100%;
+    height: 100%;
+    
+    image-rendering: pixelated;
+    touch-action: none;
+    cursor: inherit;
+}
+
+.tile-picker-viewport{
+    //border: 5px solid black;
+    width: 100%;
+    height: 100%;
+    
+    image-rendering: pixelated;
+    touch-action: none;
+    cursor: inherit;
+}
+// FIX EXCESS---------------------------------------------
+
+
+
+.level-settings-popup-menu{
+    position: absolute;
+    
+    width: 20vh;
+    height: 20vh;
+
+    background-color: violet;
+    display: none;
+}
+
+.layer-settings-popup-menu{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    width: 20vh;
+    height: 20vh;
+
+    background-color: violet;
+    display: none;
+}
+
+.show{
+    display: block;
+}
+
+.map-editor-menubar{
+    display: flex;
+    flex-direction: row;
+    // justify-content: space-between;
+    align-items: center;
+
+    .menu-item{
+        width: 20%;
+        height: 100%;
+        background-color: blueviolet;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.color-map{
+    display: flex;
+    flex-direction: row;
+    background-color: $color-map-background;
+    padding: 2px;
+
+    border-radius: 20px;
+    
+    
+    
+    .color-map-cell{
+        width: 20px;
+        height: 20px;
+        border: 1px solid black;
+        border-radius: 20px;
+
+        margin: 2px;
+        padding: 2px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .active{
+            border: 1px solid white;
+        }
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}

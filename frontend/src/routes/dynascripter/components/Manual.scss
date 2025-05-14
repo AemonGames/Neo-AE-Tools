@@ -1,0 +1,25 @@
+.manual-tooltip {
+    background-color: #222;
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    max-width: 240px;
+    z-index: 9999;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  
+    &.visible {
+      visibility: visible;
+      opacity: 1;
+    }
+  
+    .tooltip-arrow {
+      width: 1rem;
+      height: 0.5rem;
+      background: inherit;
+      clip-path: polygon(50% 100%, 0 0, 100% 0);
+    }
+  }
+  

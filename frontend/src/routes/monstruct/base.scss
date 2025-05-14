@@ -1,0 +1,11 @@
+$bgColor1:  rgb(15, 70, 52);
+$bgColor2:  rgb(42, 167, 26);
+
+body{
+  background: linear-gradient(90deg, $bgColor1,$bgColor2) ;
+  
+  
+
+  //background-size: cover;
+  //background-color: rgba(42, 167, 26, 0.405);
+}
