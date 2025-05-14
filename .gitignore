@@ -1,0 +1,69 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.env
+.env
+.env.*
+
+# Django
+/media
+/staticfiles/
+db.sqlite3
+local_settings.py
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Mac
+.DS_Store
+
+# Node (Solid.js frontend)
+node_modules/
+dist/
+.vite/
+frontend/.env
+frontend/.env.*
+
+# Build
+*.egg-info/
+.eggs/
+build/
+develop-eggs/
+.installed.cfg
+
+# Virtualenv
+venv/
+env/
+ENV/
+env.bak/
+*.bak/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Coverage reports
+.coverage
+htmlcov/
+.tox/
+.nox/
+.coverage.*
+.cache/
+pytest_cache/
+nosetests.xml
+coverage.xml
+
+# IDEs and editors
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.iml
+
+# OS
+Thumbs.db
+ehthumbs.db

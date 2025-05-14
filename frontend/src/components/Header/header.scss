@@ -1,0 +1,44 @@
+$breakpoint-phone: 600px;
+
+
+
+.App-logo {
+    height: 10vmin;
+    pointer-events: none;
+  }
+
+.App-header {
+    min-height: 2vh;
+    display: flex;
+    flex-direction: row;
+    //background-color: rebeccapurple;
+    color: antiquewhite;
+    justify-content: space-between;
+  
+    $marginSpacing: 20px;
+  
+    img{
+      margin-left: $marginSpacing;
+    }
+    h1{
+      display: flex;
+      font-size: xx-large;
+      justify-self: flex-end;
+      margin-right: $marginSpacing;
+      border-color: black;
+      //text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+      //color: transparent;
+      text-decoration: dashed;      
+    }
+  }
+
+@media only screen and (max-width: $breakpoint-phone) {
+  .App-header {
+
+    justify-content: space-evenly;
+
+    h1{
+      font-size: large;
+    }
+  }
+}

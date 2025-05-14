@@ -1,0 +1,50 @@
+
+
+.ticket-container{
+    align-items: center;
+
+    height: 100vh;
+    
+    justify-content: center;
+
+    display: flex;
+    flex-direction: row;
+
+    form{
+
+        background-color: black;
+        padding: 40px;
+        border-radius: 20px;
+        width: 50vw;
+
+        display: flex;
+        flex-direction: column;
+        color: white;
+        
+        .page & :nth-child(even){
+            background-color: red;
+        }
+    }
+
+}
+
+
+.base-stat-container{
+    display: flex;
+    flex-direction: column;
+
+    width:20vw; // works on desktop, check for mobile
+    height: auto;
+}
+
+.row{
+    display: flex;
+    
+}
+
+.col{
+    display: flex;
+    flex-direction: column;
+}
+
+

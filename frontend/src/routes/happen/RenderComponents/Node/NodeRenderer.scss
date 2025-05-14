@@ -1,0 +1,33 @@
+
+
+.node{
+    background-color: #084040;
+    color: white;
+
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 5px;
+    
+    display: flex;
+    flex-direction: column;
+    
+    // width: 100px;
+    // height: 100px;
+
+    padding-left: 30px;
+    padding-right: 30px;
+    
+    justify-content: center;
+    align-items: center;
+    
+    
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+
+    .selected{
+
+    }
+    //transition: all 0.3s;
+}

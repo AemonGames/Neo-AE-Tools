@@ -1,0 +1,108 @@
+
+
+
+.code-editor-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.code-editor-select-container{
+    display: flex;
+    flex-direction: row;
+
+    button{
+        background-color: aqua;
+    }
+
+}
+
+
+#code{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid red 2px;
+    background-color: #2e2e2e;
+    width: 60vw;
+    overflow-y: auto;
+
+    height: 100%;
+
+}
+
+li{
+    list-style: none;
+}
+  
+.command{
+    background-color: #22ae92;
+    //text-decoration: underline;
+}
+
+
+
+#scripter{
+    display: flex;
+    flex-direction: column;
+}
+
+.rowLayout{
+    display: flex;
+    flex-direction: row;
+}
+
+.cmd-block{
+    display: flex;
+    flex-direction: row;
+}
+
+.cmd-sub{
+    display: flex;
+    flex-direction: column;
+}
+
+.event-container{
+    display: flex;
+    flex-direction: row;
+    background-color: greenyellow;
+    //color: black;
+}
+
+.setup-container{
+    display: flex;
+    background-color: aquamarine;
+}
+
+.command-container{
+    display: flex;
+    flex-direction: column;
+    background-color: aquamarine;
+}
+
+.selected-tab{
+    background-color: #22ae92;
+}
+
+.add-event-command-button{
+    position: relative;
+    float: right;
+}
+
+.event-block{
+    background: red;
+    border: 5px solid black;
+    border-radius: 8px;
+}
+
+  /*
+
+.dropdown-sub{
+    
+    div{
+        background-color: gray;
+
+        color: aquamarine;
+        border: none;
+    }
+}
+*/

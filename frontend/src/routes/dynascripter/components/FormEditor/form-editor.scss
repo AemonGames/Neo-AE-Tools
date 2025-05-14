@@ -1,0 +1,52 @@
+
+.form-container{
+  
+}
+
+.form-data-container{
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  align-content: center;
+  font-size: large;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  width: 40vw;
+  left: -50vw; // 40 + 5 + 5
+  background-color: #fa7f25;
+}
+
+
+#name-check{
+  width: 4%;
+  height: 4%;
+}
+
+#base-separator{
+  border: 10px solid green;
+  //border-radius: 5px;
+  width: 100%;
+}
+
+.custom .solid-select-container {
+  color: #fa7f25;
+}
+.custom .solid-select-control {
+  outline-color: #fca560;
+  border-color: #fca560;
+}
+.custom .solid-select-placeholder {
+  color: #fca560;
+}
+.custom .solid-select-option {
+  background-color: aqua;
+  color: #fff;
+}
+.custom .solid-select-option:hover {
+  background-color: #fa7f25;
+  color: #fff;
+}
+.custom .solid-select-option[data-focused=true] {
+  background-color: #fca560;
+  color: #fff;
+}

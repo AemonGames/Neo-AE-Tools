@@ -1,0 +1,59 @@
+$backgroundColor: linear-gradient(rgb(95, 95, 95),rgb(0,0,0));
+$selectedBigButton: linear-gradient(rgb(135, 135, 135),rgb(25,25,25));
+$tempBackgroundColor: linear-gradient(rgb(204, 96, 96),rgb(120, 215, 75));
+
+$textColor: aliceblue;
+
+@mixin viewingWindow($direction){
+    display: flex;
+    flex-direction: $direction;
+    
+
+  }
+  
+@mixin disableSelect{
+    user-drag: none;  
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+  
+  .no-select{
+    @include disableSelect();
+  }
+
+  .click-button{
+    background-color:#fb61e4;
+      font-size: xx-large;
+      border-radius: 15px;
+      
+      &:hover{
+        fill: #22ae92;
+        color: aquamarine;
+        background-color: #282c34;
+      }
+  }
+
+  .viewport{
+    min-height: 95vh;
+    width: 100vw;
+    display: flex;
+    
+    background: $backgroundColor;
+    
+  }
+
+  .content-container{
+    align-items: center;
+
+    height: 90vh;
+    
+    justify-content: center;
+
+    display: flex;
+    flex-direction: row;
+    //content-containeroverflow: hidden;
+
+  }

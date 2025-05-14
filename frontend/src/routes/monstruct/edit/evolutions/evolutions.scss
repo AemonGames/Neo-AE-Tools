@@ -1,0 +1,35 @@
+
+
+.evolution-editor{
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+
+}
+
+.evolution-popup-overlay{
+    position: fixed;
+    background-color: blueviolet;
+}
+
+.evolution-popup-container{
+
+    background-color: black;
+    border-radius: 10px;
+
+    position: fixed;
+
+}
+
+.evolution-method-icon{
+
+    height: 2vh;
+    width: 2vh;
+
+    &.is-selected{
+        background-color: aqua;
+    }
+
+}
+

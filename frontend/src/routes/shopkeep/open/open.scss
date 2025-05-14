@@ -1,0 +1,29 @@
+
+
+
+.shop-catalogue-container{
+    display: flex;
+    flex-direction: column;
+
+    background-color: rgb(0, 114, 114);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.shop-catalogue{
+    display: flex;
+    flex-direction: column;
+
+    tr:nth-child(even){
+        background-color: green;
+    }
+
+    tr:nth-child(odd){
+        background-color: red;
+    }
+    
+}
+
+.shop-item{
+    //display: flex;
+}
