@@ -15,10 +15,10 @@ from dotenv import load_dotenv
 from pathlib import Path
 
 
-
+# dotenv_path = Path(__file__).resolve().parent.parent / '.env'
 load_dotenv()
 
-GOOGLE_OAUTH_CLIENT_ID = os.environ.get('GOOGLE_OAUTH_CLIENT_ID')
+GOOGLE_OAUTH_CLIENT_ID = os.environ.get('VITE_GOOGLE_OAUTH_CLIENT_ID')
 if not GOOGLE_OAUTH_CLIENT_ID:
     raise ValueError(
         'GOOGLE_OAUTH_CLIENT_ID is missing.'
