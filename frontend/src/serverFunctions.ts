@@ -20,13 +20,13 @@ function ParseResult(response : AxiosResponse){
 // Monster Functions
 
 export async function GetRecentMonsterTickets() : Promise<MonsterCard[]>{
-    const result = await axios.get(`${serverURL}/api/db/monster/recent`);
+    const result = await axios.get(`${serverURL}/api/v1/core/monster/recent`);
     console.log(result);
     return result.data;
 }
 
 export async function GetMonsterData(name : string) : Promise<Monster>{
-    const result = await axios.get(`${serverURL}/api/db/monster?name=${name}`);
+    const result = await axios.get(`${serverURL}/api/v1/core/monster?name=${name}`);
     console.log(result.data);
     return result.data;
 }
@@ -51,7 +51,7 @@ export async function SubmitCreature(formData : CreateMonsterRequest){
     console.log(formData);
     console.log(formData.image);
 
-    const response = await axios.post(`${serverURL}/api/db/monster`, formData, {headers : {'Content-Type': 'multipart/form-data'}});
+    const response = await axios.post(`${serverURL}/api/v1/core/monster`, formData, {headers : {'Content-Type': 'multipart/form-data'}});
     
     console.log(response);
     
@@ -62,13 +62,13 @@ export async function SubmitCreature(formData : CreateMonsterRequest){
 // Ability Functions
 
 export async function GetAbilityByID(recordID : string) : Promise<Monster>{
-    const result = await axios.get(`${serverURL}/api/db/ability?id=${recordID}`)
+    const result = await axios.get(`${serverURL}/api/v1/core/ability?id=${recordID}`)
     console.log(result.data);
     return result.data;
 }
 
 export async function GetAbilityList(){
-    const result = await axios.get(`${serverURL}/api/db/ability/list`);
+    const result = await axios.get(`${serverURL}/api/v1/core/ability/list`);
     console.log(result.data);
     return result.data;
 }
@@ -77,19 +77,19 @@ export async function GetAbilityList(){
 // Move Functions
 
 export async function GetMoveByID(recordID : string) : Promise<Monster>{
-    const result = await axios.get(`${serverURL}/api/db/ability?id=${recordID}`)
+    const result = await axios.get(`${serverURL}/api/v1/core/ability?id=${recordID}`)
     console.log(result.data);
     return result.data;
 }
 
 export async function GetMoveList(){
-    const result = await axios.get(`${serverURL}/api/db/ability/list`);
+    const result = await axios.get(`${serverURL}/api/v1/core/ability/list`);
     console.log(result.data);
     return result.data;
 }
 
 export async function GetMonsterLearnset(){
-    const result = await axios.get(`${serverURL}/api/db/ability/list`);
+    const result = await axios.get(`${serverURL}/api/v1/core/ability/list`);
     console.log(result.data);
     return result.data;
 }
@@ -99,7 +99,7 @@ export async function GetMonsterLearnset(){
 // Other / Misc Functions
 
 export async function GetMonsterTypes() : Promise<string[]>{
-    const result = await axios.get(`${serverURL}/api/db/type/list`)
+    const result = await axios.get(`${serverURL}/api/v1/core/type/list`)
     console.log(result.data);
     return result.data;
 }

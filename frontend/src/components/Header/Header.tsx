@@ -1,62 +1,47 @@
-import logo from '../../resources/okaymon_logo_v5_color.png';
-import {
-    animate,
-    createTimeline,
-    createTimer,
-    // ...other methods
-  } from 'animejs';
-import { versionNumbers } from '../../common';
-import './header.scss';
-import { Component, VoidComponent, VoidProps, createEffect } from 'solid-js';
-import { JSX, Show, Switch, Match } from 'solid-js';
-import { A } from '@solidjs/router'
+import { JSX } from 'solid-js';
+import { A } from '@solidjs/router';
+import { animate } from 'animejs';
+import { useActiveToolConfig } from '../../utils/useToolConfig';
 
-export default function Header(props : VoidProps<{arg:string}>):JSX.Element {
+import appLogo from '../../resources/ae_tools_logo.png';
 
+export default function Header(): JSX.Element {
+  const { config } = useActiveToolConfig();
+  let logoRef: HTMLImageElement | undefined;
 
-    const animateLogo = () => {
-        console.log("Animating");
-        animate("#logo", {
-            translateX:[
-                {value: 20, duration: 300, delay: 20},
-                {value: 0, duration: 400, delay: 20}
-            ],
-            //rotate: '1turn'
-            }
-        );
+  const triggerAnimation = () => {
+    if (logoRef) {
+      animate(logoRef, {
+        translateX: [
+          { value: 20, duration: 300, delay: 20 },
+          { value: 0, duration: 400, delay: 20 },
+        ],
+        easing: 'easeInOutQuad',
+        autoplay: true,
+      });
     }
+  };
 
-
-    return(
-    <header class="App-header"
-        
-        style={
-            props.arg == "dynascripter"? {"background-color": "rebeccapurple"}:
-            props.arg == "monstruct"? {"background-color": 'rgb(51, 85, 153)'} : ""
-    }
-
-        >
-    <div onMouseOver={animateLogo}>
-        <a href='/'>
-        <img id="logo" src={logo} class="App-logo" alt="Okaymon-Logo"/>
-        </a>
-    </div>
-    <h1 onMouseOver={() => console.log("Hover Detected")}>
-        <Switch>
-            {/* Take values from somewhere else later */}
-            <Match when={props.arg == "dynascripter"}>
-                DynaLang Scripter 
-            </Match>
-            
-            <Match when={props.arg == "monstruct"}>
-                <A href='monstruct'>
-                    Monstruct 
-
-                </A>
-            </Match>
-        </Switch>
-            v{versionNumbers[props.arg]}
-    </h1>
+  return (
+    <header
+      class="d-flex align-items-center p-3 text-white"
+      style={{
+        'background-color': config()?.color ?? '#333',
+        transition: 'background-color 0.4s ease'
+      }}
+    >
+      <A href="/" class="me-3" onMouseOver={triggerAnimation}>
+        <img
+          ref={logoRef}
+          src={appLogo}
+          alt="Tool Icon"
+          height={60}
+        />
+      </A>
+      <div>
+        <h1 class="mb-0">{config()?.name ?? 'AE Tools'}</h1>
+        <small>{config() ? `v${config()?.version}` : ' '}</small>
+      </div>
     </header>
-    )
+  );
 }

@@ -6,13 +6,15 @@ router = routers.DefaultRouter()
 router.register(r'monsters', MonsterViewSet)
 router.register(r'moves', MoveViewSet)
 router.register(r'abilities', AbilityViewSet)
-router.register(r'egg-groups', EggGroupViewSet)
-router.register(r'move-records', MonsterMoveRecordViewSet)
 router.register(r'items', ItemViewSet)
 router.register(r'types', TypeViewSet)
 
+# router.register(r'egg-groups', EggGroupViewSet)
+# router.register(r'move-records', MonsterMoveRecordViewSet)
+
 urlpatterns = [
     path('api/', include(router.urls)),
+    path('api/v1/core/', include(router.urls)),
     path('api/dyna_cmd/', dyna_cmd_view, name='dyna_cmd_view'),
 
 ]

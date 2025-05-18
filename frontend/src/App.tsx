@@ -1,6 +1,8 @@
 import { Component, createEffect, lazy} from 'solid-js';
 import {createSignal} from 'solid-js';
-import {Router, Route, RouteSectionProps} from '@solidjs/router';
+import {Router, Route, RouteSectionProps, useLocation} from '@solidjs/router';
+import { toolConfig } from './toolConfig';
+
 
 // Change to lazy load eg: const Users = lazy(() => import("./pages/Users"));
 
@@ -46,18 +48,22 @@ import Map_Editor from './routes/globlot/editor/editor';
 
 const App: Component = () => {
 
-  const [ActiveApp, SetActiveApp] = createSignal("");
+  // const [ActiveApp, SetActiveApp] = createSignal("");
 
-  createEffect(() => {
-    console.log("This ran");
-  })
+  // createEffect(() => {
+  //   const location = useLocation();
+  //   const firstSegment = location.pathname.split('/')[1];
+  //   if (firstSegment in toolConfig) {
+  //     SetActiveApp(firstSegment);
+  //   }
+  // });
 
   
 
   const PageWrapper = (props: RouteSectionProps<unknown>) => {
     return (
       <>
-        <Header arg={ActiveApp()}/>
+        <Header/>
   
         <main>
           <div class='content-container'>

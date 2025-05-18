@@ -14,7 +14,7 @@ export function PresentationButton(
         title={props.hintText}
       >
         <img src={props.img_src || "/assets/icons/default.svg"} alt={`${props.label} icon`} />
-        <h2 class="mt-2">{props.label}</h2>
+        <h2 class="mt-2 text-white">{props.label}</h2>
       </Button>
     );
   }
@@ -43,7 +43,7 @@ export function PresentationButton(
           class={`present-button d-flex flex-column align-items-center ${props.isNavLink ? "present-nav-button" : ""} ${props.animate ? "animated" : ""}`}
         >
           <img src={props.img_src || "/assets/icons/default.svg"} alt={`${props.label} icon`} />
-          <h2 class="mt-2">{props.label}</h2>
+          <h2 class="mt-2 text-white">{props.label}</h2>
         </Button>
       </A>
     );

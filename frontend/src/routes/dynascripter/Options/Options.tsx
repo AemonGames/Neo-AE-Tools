@@ -1,96 +1,123 @@
-import { For, JSX } from 'solid-js';
+import { For, JSX, createSignal } from 'solid-js';
 import { languages, setLanguage } from '../../../common';
 import { ClearData } from '../data';
-import './options.scss'
+import Modal from 'bootstrap/js/dist/modal';
+import { useToast } from '../../../components/ToastNotification'; // adjust path if needed
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function Options() : JSX.Element{
+export default function Options(): JSX.Element {
+  const [modalMessage, setModalMessage] = createSignal('');
+  const [submitFunction, setSubmitFunction] = createSignal<() => void>(() => {});
+  const { showToast, ToastComponent } = useToast();
 
-    let sub_func : () => void;
+  let modalRef: HTMLDivElement | undefined;
 
+  function DisplayConfirmation(msg: string, func: () => void): void {
+    setModalMessage(msg);
+    setSubmitFunction(() => func);
 
-    function HideConfirmation(){
-        let confirmationBox : HTMLElement | null = document.getElementById("confirmation");
-        if(confirmationBox == null){
-            console.error("Confirmation box could not be found");
-            return;
-        }
-        console.log(confirmationBox);
-        confirmationBox.style.visibility = "hidden";
-        
+    if (modalRef) {
+      const modal = new Modal(modalRef);
+      modal.show();
     }
-    
-    function DisplayConfirmation(msg : string, submit_function : () =>  void) : void{
-        
-        let confirmationBox : HTMLElement | null = document.getElementById("confirmation");
-        let confirmationQuery : HTMLElement | null = document.getElementById("confirmation-query");
-        if(confirmationBox == null || confirmationQuery == null){
-            console.error("Confirmation box or query could not be found");
-            return;
-        }
-        sub_func = submit_function;
+  }
 
-        confirmationBox.style.visibility = "visible";
-        confirmationQuery.innerText = msg;
-        // set visibility
-    }
+  function RunSubmitFunction(): void {
+    submitFunction()();
+    showToast({ message: 'Action completed successfully!', type: 'success' });
+    CancelSubmitFunction();
+  }
 
-    function RunSubmitFunction(){
-        console.log(sub_func);
-        if(sub_func != undefined){
-            sub_func();
-        }
-        CancelSubmitFunction();
-    }
-    
-    function CancelSubmitFunction(){
-        sub_func = () => {};
-        HideConfirmation();
-        //console.log(sub_func);
-    }
+  function CancelSubmitFunction(): void {
+    setSubmitFunction(() => () => {});
+  }
 
-    return(
-        <div id="options-menu" class="viewport">
+  return (
+    <div class="container py-4">
+      <h1 class="mb-4">Options</h1>
 
-            <div id="confirmation">
-
-                <div id="confirmation-message"> 
-                    <h2 id="confirmation-query">Are you sure?</h2>
-
-                    <div id="confirmation-button-container">
-                        <button class="options-button" onClick={CancelSubmitFunction}>No Way!</button>
-                        <button class="options-button" onClick={RunSubmitFunction}>OK!</button>
-                    </div>
-                </div>
-            </div>
-
-            <h1>Options</h1>
-            
-            <div id="options-list">
-                <div>
-                    <h3>Language</h3>
-                    <For each={languages}>{(value, index) => 
-                        <button onClick={() => setLanguage(value)}>{value}</button>
-                    }</For>
-                </div>
-
-                <div>
-                    <h3>Themes</h3>
-                    
-                    <button onClick={() => alert("Changing theme")}>Dark Mode</button>
-                    <button onClick={() => alert("Why would you do this???")}>Light Mode</button>
-                </div>
-
-                <div>
-                    <h3>Data</h3>
-                    <button onClick={() => DisplayConfirmation("This is a message", ClearData)}>Clear Data?</button>
-                    <button onClick={() => print()}>Export Data</button>
-                </div>
-
-
-            </div>
-
-
-
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card p-3">
+            <h5 class="card-title">Language</h5>
+            <For each={languages}>
+              {(value) => (
+                <button class="btn btn-outline-primary m-1" onClick={() => setLanguage(value)}>
+                  {value}
+                </button>
+              )}
+            </For>
+          </div>
         </div>
-    )
+
+        <div class="col-md-4">
+          <div class="card p-3">
+            <h5 class="card-title">Themes</h5>
+            <button class="btn btn-dark m-1" onClick={() => showToast({ message: 'Dark mode coming soon', type: 'info' })}>
+              Dark Mode
+            </button>
+            <button class="btn btn-light m-1" onClick={() => showToast({ message: 'Light mode hurts!', type: 'warning' })}>
+              Light Mode
+            </button>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card p-3">
+            <h5 class="card-title">Data</h5>
+            <button
+              class="btn btn-danger m-1"
+              onClick={() => DisplayConfirmation('Are you sure you want to clear all data?', ClearData)}
+            >
+              Clear Data?
+            </button>
+            <button class="btn btn-success m-1" onClick={() => window.print()}>
+              Export Data
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Bootstrap Modal */}
+      <div
+        class="modal fade"
+        id="confirmationModal"
+        tabIndex={-1}
+        aria-labelledby="confirmationModalLabel"
+        aria-hidden="true"
+        ref={modalRef}
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="confirmationModalLabel">
+                Confirmation
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+                onClick={CancelSubmitFunction}
+              ></button>
+            </div>
+            <div class="modal-body">
+              <p>{modalMessage()}</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={CancelSubmitFunction}>
+                No Way!
+              </button>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={RunSubmitFunction}>
+                OK!
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Toast Notification */}
+      <ToastComponent />
+    </div>
+  );
 }
