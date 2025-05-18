@@ -11,6 +11,9 @@ static_sites:
     output_dir: dist
     routes:
       - path: /
+    domains:
+      - domain: tools.aemongame.dev
+        type: PRIMARY
     envs:
       - key: VITE_BACKEND_SERVER_URL
         value: https://api.yourdomain.com/api/
